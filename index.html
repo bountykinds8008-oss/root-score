@@ -1,0 +1,123 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover" />
+  <meta name="theme-color" content="#07111f" />
+  <meta name="apple-mobile-web-app-capable" content="yes" />
+  <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+  <link rel="manifest" href="manifest.webmanifest" />
+  <link rel="stylesheet" href="style.css" />
+  <title>ROOT SCORE</title>
+</head>
+<body>
+  <header class="app-header">
+    <div>
+      <div class="brand">ROOT SCORE</div>
+      <div class="tagline">Mahjong Score App</div>
+    </div>
+    <button id="installBtn" class="ghost" hidden>ホーム画面に追加</button>
+  </header>
+
+  <main>
+    <section id="home" class="screen active">
+      <div class="hero">
+        <div class="hero-copy">
+          <h1>麻雀の点数・収支を<br>かんたん自動計算</h1>
+          <p>3人麻雀メイン・4人麻雀対応</p>
+        </div>
+      </div>
+
+      <div class="mode-grid">
+        <button class="mode-card red" data-mode="3">
+          <span class="mode-title">3人麻雀を開始</span>
+          <span>ROOTルールで記録</span>
+        </button>
+        <button class="mode-card blue" data-mode="4">
+          <span class="mode-title">4人麻雀を開始</span>
+          <span>基本ルールは共通</span>
+        </button>
+      </div>
+
+      <div class="menu-grid">
+        <button data-nav="stats">成績</button>
+        <button data-nav="ranking">ランキング</button>
+        <button data-nav="history">対局履歴</button>
+        <button data-nav="players">プレイヤー</button>
+        <button data-nav="rules">設定・ルール</button>
+      </div>
+    </section>
+
+    <section id="game" class="screen">
+      <div class="screen-title-row">
+        <button class="back">←</button>
+        <h2 id="gameTitle">対局入力</h2>
+      </div>
+
+      <div class="card">
+        <label>対局日
+          <input type="date" id="gameDate" />
+        </label>
+      </div>
+
+      <div id="playerInputs"></div>
+
+      <div class="card">
+        <label class="check-row">
+          <input type="checkbox" id="openReachTsumo" />
+          オープンリーチツモ（+1枚）
+        </label>
+      </div>
+
+      <button id="calcBtn" class="primary">計算する</button>
+      <div id="resultBox" class="result-box hidden"></div>
+    </section>
+
+    <section id="players" class="screen">
+      <div class="screen-title-row"><button class="back">←</button><h2>プレイヤー管理</h2></div>
+      <div class="card inline-form">
+        <input id="newPlayerName" placeholder="名前を入力" maxlength="20" />
+        <button id="addPlayerBtn" class="primary small">追加</button>
+      </div>
+      <div id="playerList"></div>
+    </section>
+
+    <section id="history" class="screen">
+      <div class="screen-title-row"><button class="back">←</button><h2>対局履歴</h2></div>
+      <div id="historyList"></div>
+    </section>
+
+    <section id="ranking" class="screen">
+      <div class="screen-title-row"><button class="back">←</button><h2>ランキング</h2></div>
+      <div id="rankingList"></div>
+    </section>
+
+    <section id="stats" class="screen">
+      <div class="screen-title-row"><button class="back">←</button><h2>成績</h2></div>
+      <div id="statsList"></div>
+    </section>
+
+    <section id="rules" class="screen">
+      <div class="screen-title-row"><button class="back">←</button><h2>ROOT SCORE 公式ルール</h2></div>
+      <div class="card rules">
+        <h3>基本</h3>
+        <p>3人麻雀メイン・4人麻雀サブ</p>
+        <p>配給原点 35,000点 / 返し 40,000点</p>
+        <p>ウマ 0-30 / 1,000点＝50円</p>
+        <p>75,000点終了 / -100点でトビ</p>
+        <h3>牌・和了</h3>
+        <p>北抜きなし・北はドラ扱い・北祝儀なし</p>
+        <p>赤5は各2枚 / ツモ損なし</p>
+        <p>ダブロン・トリロンは全員和了</p>
+        <p>流し倍満：子 10,000 / 6,000、親 12,000オール</p>
+        <h3>チップ</h3>
+        <p>1枚300円</p>
+        <p>オープンリーチツモ +1枚</p>
+        <p>トビ：飛ばした側 +3枚 / 飛んだ側 -3枚</p>
+      </div>
+    </section>
+  </main>
+
+  <script src="app.js"></script>
+</body>
+</html>
