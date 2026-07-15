@@ -41,7 +41,7 @@ function startGame(){
         <select class="pname">${state.players.map(p=>`<option>${p}</option>`).join("")}</select>
       </label>
       <label>最終持ち点
-        <input class="points" type="number" step="100" value="${35000}">
+        <input class="points" type="number" step="100" value="${25000}">
       </label>
       <label>チップ枚数
         <input class="chips" type="number" step="1" value="0">
